@@ -88,9 +88,7 @@ const resolvers = {
                 return book
             }
             throw new AuthenticationError
-        }
-
-
-    }
-
-}
+        },
+    },
+};
+module.exports = resolvers;
