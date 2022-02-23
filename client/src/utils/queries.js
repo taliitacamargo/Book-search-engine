@@ -18,3 +18,6 @@ export const GET_ME = gql`
     } 
 }
 `;
+
+// for graphix card => take the data we have and export it to a pdf 
+// 
