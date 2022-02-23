@@ -17,7 +17,7 @@ async function startServer() {
     server = await new ApolloServer({
       typeDefs,
       resolvers,
-      // context: authMiddleware,
+      context: authMiddleware,
     });
     await server.start()
     await server.applyMiddleware({ app })
@@ -28,8 +28,6 @@ async function startServer() {
 }
 
 startServer();
-
-
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -45,6 +43,5 @@ app.get('*', (req, res) => {
 // app.use(routes);
 
 db.once('open', () => {
-  console.log(server.config.resolvers.Mutation)
   app.listen(PORT, () => console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`));
 });
